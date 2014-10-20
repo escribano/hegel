@@ -14,14 +14,18 @@ function hegel.hook () {
   #echo $_dfiles
   pushd $HEGEL_PATH/hooks > /dev/null
   #pwd
-  for f in *.sh
+  for file in *.sh
   do
           #lb2file="/tmp/${f##*/}.$$"   #tmp file
           #sed 's/Load_Balancer-1/Load_Balancer-2/' "$f" > "${lb2file}"   # update signature 
           #scp "${lb2file}" nginx@lb2.nixcraft.net.in:${f}   # scp updated file to lb2
           #rm -f "${lb2file}"
           #echo "${f}"
-          source "${f}"
+          if [ -e "$file" ] ; then  # Make sure it isn't an empty match
+            #COMMAND ... "$file" ...
+            source "${f}"
+          fi
+          #source "${f}"
   done
   popd > /dev/null
 
