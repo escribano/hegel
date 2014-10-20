@@ -28,9 +28,15 @@ function mate.hegel () {
   mate $HEGEL_PATH
 }
 
+function update.config () {
+  local hegel_config="$HEGEL_PATH/config/hegelrc"
+  cp "${hegel_config}.template.sh" "${hegel_config}.sh"
+}
+
 function hegel.update () {
   pull.hegel
   source.hegel
+  update.config
 }
 
 function source.hegel {
