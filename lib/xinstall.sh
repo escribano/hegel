@@ -23,7 +23,7 @@ function hegel.hook () {
           #echo "${f}"
           if [ -e "$file" ] ; then  # Make sure it isn't an empty match
             #COMMAND ... "$file" ...
-            source "${f}"
+            source "${file}"
           fi
           #source "${f}"
   done
