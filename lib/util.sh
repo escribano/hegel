@@ -14,13 +14,14 @@ function install.hegel () {
 function hegel.info () {
   printf "UNAME: $UNAME\n"
   printf "READLINK: $READLINK\n"
-  printf "PHILOSOPHIE_PATH: $PHILOSOPHIE_PATH\n"
+  #printf "PHILOSOPHIE_PATH: $PHILOSOPHIE_PATH\n"
   printf "HEGEL_PATH: $HEGEL_PATH\n"
   printf "HEGEL_LIB_PATH: $HEGEL_LIB_PATH\n"
 }
 
 function hegel.update () {
   pull.hegel
+  source.hegel
 }
 
 function source.hegel {
