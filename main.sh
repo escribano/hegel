@@ -1,6 +1,6 @@
 #!/bin/bash
 #set -e # Exit if any command returns non-zero.
-UNAME=`uname`
+export UNAME=`uname`
 #echo "$UNAME"
 
 if [ "$UNAME" == "Darwin" ]; then
@@ -8,10 +8,10 @@ if [ "$UNAME" == "Darwin" ]; then
 	#`which greadlink`
 	if [ ! `which greadlink` ]; then
 		#echo 'That was a good job!'
-		HEGEL_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+		export HEGEL_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 	else
-		READLINK="greadlink"
-		HEGEL_PATH=$(dirname $($READLINK -f $BASH_SOURCE))
+		export READLINK="greadlink"
+		export HEGEL_PATH=$(dirname $($READLINK -f $BASH_SOURCE))
 	fi
 	#alias readlink=greadlink
 	#READLINK="greadlink"
@@ -20,8 +20,8 @@ if [ "$UNAME" == "Darwin" ]; then
 	#        exit 0
 	#fi
 elif [ "$UNAME" == "Linux" ]; then
-	READLINK="readlink"
-	HEGEL_PATH=$(dirname $($READLINK -f $BASH_SOURCE))
+	export READLINK="readlink"
+	export HEGEL_PATH=$(dirname $($READLINK -f $BASH_SOURCE))
 else
 	echo "not yet"
 	exit 0

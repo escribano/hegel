@@ -1,21 +1,13 @@
 #!/bin/bash
 #
-# wget https://github.com/escribano/habitatione/shell/debian/boot.sh
-# curl http://npmjs.org/install.sh | sh
+# wget -qO- https://github.com/escribano/hegel/raw/master/install | bash
 #
-# wget -qO- https://github.com/escribano/debian/raw/master/boot.sh | bash
-# wget -qO- https://github.com/escribano/hegel/raw/master/install | bash
-
-# wget -qO- https://github.com/escribano/hegel/raw/master/install | bash
 
 export PHILOSOPHIE_PATH="$HOME/philosophie"
-export HEGEL_PATH="$PHILOSOPHIE_PATH/hegel"
-local user_profile="$HOME/.profile"
-local hegel_git="https://github.com/escribano/hegel.git"
 mkdir -p $PHILOSOPHIE_PATH
 pushd $PHILOSOPHIE_PATH > /dev/null
-git clone $hegel_git
+git clone https://github.com/escribano/hegel.git
 cd hegel
-printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
 source ./main.sh
+install.hegel
 popd > /dev/null
