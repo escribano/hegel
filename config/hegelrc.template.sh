@@ -1,0 +1,5 @@
+export PHILOSOPHIE_PATH="$HOME/philosophie"
+export PHILOSOPHIE_XPATH="$PHILOSOPHIE_PATH"
+
+
+

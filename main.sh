@@ -36,6 +36,11 @@ source "$HEGEL_LIB_PATH/boot.sh"
 source "$HEGEL_LIB_PATH/tar.sh"
 source "$HEGEL_LIB_PATH/tools.sh"
 
+source "$HEGEL_PATH/config/hegelrc.sh"
+source "$HEGEL_LIB_PATH/xinstall.sh"
+
+hegel.hook
+
 #source "$LIB_PATH/.sh"
 #echo "ami functions installed from $LIB_PATH/ec2/ami.sh"
 

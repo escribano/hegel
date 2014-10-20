@@ -12,6 +12,7 @@ node_modules
 .DS_Store
 npm-debug.log
 var
+config/hegelrc.sh
 
 
 ######### from github

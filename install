@@ -8,8 +8,15 @@ mkdir -p $PHILOSOPHIE_PATH
 pushd $PHILOSOPHIE_PATH > /dev/null
 git clone https://github.com/escribano/hegel.git
 cd hegel
-source ./main.sh
-install.hegel
+#install.hegel
+hegel_config="config/hegelrc"
+cp "${hegel_config}.template.sh" "${hegel_config}.sh"
+#local count=0
+#USER_PROFILE="$HOME/.profile"
+#printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
+#printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
 #printf "\nsource $HEGEL_PATH/main.sh\n"
+#source ./main.sh
+echo "source `pwd`/main.sh"
 popd > /dev/null
-echo "source $HEGEL_PATH/main.sh"
+
