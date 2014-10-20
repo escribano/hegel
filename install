@@ -14,7 +14,7 @@ cp "${hegel_config}.template.sh" "${hegel_config}.sh"
 #local count=0
 #USER_PROFILE="$HOME/.profile"
 #printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
-printf "\nsource $HEGEL_PATH/main.sh\n" >> $HOME/.profile
+printf "\nsource `pwd`/main.sh\n" >> $HOME/.profile
 #printf "\nsource $HEGEL_PATH/main.sh\n"
 #source ./main.sh
 echo "--------------------"
