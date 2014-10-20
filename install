@@ -6,7 +6,6 @@
 # wget -qO- https://github.com/escribano/debian/raw/master/boot.sh | bash
 # wget -qO- https://github.com/escribano/hegel/raw/master/install | bash
 
-pushd $HEGEL_PATH > /dev/null
 export PHILOSOPHIE_PATH="$HOME/philosophie"
 export HEGEL_PATH="$PHILOSOPHIE_PATH/hegel"
 local user_profile="$HOME/.profile"
