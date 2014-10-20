@@ -10,5 +10,6 @@ git clone https://github.com/escribano/hegel.git
 cd hegel
 source ./main.sh
 install.hegel
-printf "\nsource $HEGEL_PATH/main.sh\n"
+#printf "\nsource $HEGEL_PATH/main.sh\n"
 popd > /dev/null
+echo "source $HEGEL_PATH/main.sh"
