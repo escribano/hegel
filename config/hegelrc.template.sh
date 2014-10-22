@@ -7,7 +7,7 @@ export ROOTSITE_PATH="/opt/hab/root"
 export DAEMON_PATH="/opt/hab/daemon"
 export DAEMON_CONFIG_PATH="/etc/philosophie"
 # heidegger
-export MAPA_PATH="/opt/hab/ng/city/saopaulo"
+export CITY_PATH="/opt/hab/ng/city/saopaulo/prd/"
 
 export DATA_PATH="/opt/hab/data"
 
