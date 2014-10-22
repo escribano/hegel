@@ -37,6 +37,21 @@ function push.hegel {
 
 }
 
+function push.plato {
+  if [ "$UNAME" == "Darwin" ]; then
+    pushd $ROOTSITE_PATH > /dev/null
+    git add -A # -all
+    git commit -am 'auto'
+    git push origin master
+    popd > /dev/null
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
 function push.owl {
   if [ "$UNAME" == "Darwin" ]; then
     pushd $DAEMON_PATH > /dev/null
@@ -79,7 +94,6 @@ function pull.hegel {
   fi
 }
 
-
 function hegel.info () {
   local version="0.0.1"
   printf "Version: $version\n"
@@ -94,6 +108,28 @@ function hegel.info () {
 function mate.hegel () {
   if [ "$UNAME" == "Darwin" ]; then
     mate $HEGEL_PATH
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
+function mate.sh () {
+  if [ "$UNAME" == "Darwin" ]; then
+    mate $PHILOSOPHIE_XPATH
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
+function mate.plato () {
+  if [ "$UNAME" == "Darwin" ]; then
+    mate $ROOTSITE_PATH
   elif [ "$UNAME" == "Linux" ]; then
     _fatal.error
   else
@@ -121,6 +157,14 @@ function source.hegel {
 
 function gohegel () {
   cd $HEGEL_PATH
+}
+
+function gosh () {
+  cd $PHILOSOPHIE_XPATH
+}
+
+function goplato () {
+  cd $ROOTSITE_PATH
 }
 
 function gowl () {

@@ -32,17 +32,36 @@ export HEGEL_LIB_PATH="$HEGEL_PATH/lib"
 #echo "setup root in $ROOT_PATH"
 
 source "$HEGEL_LIB_PATH/util.sh"
-source "$HEGEL_LIB_PATH/boot.sh"
+
+source "$HEGEL_LIB_PATH/amazon/ec2.sh"
+source "$HEGEL_LIB_PATH/amazon/boot.sh"
+source "$HEGEL_LIB_PATH/amazon/ec2-ebs.sh"
+source "$HEGEL_LIB_PATH/amazon/ec2-address.sh"
+source "$HEGEL_LIB_PATH/amazon/ephemeral.sh"
+source "$HEGEL_LIB_PATH/amazon/ebs.sh"
+
+source "$HEGEL_LIB_PATH/build/crosscompile.bash"
+source "$HEGEL_LIB_PATH/build/deploy.sh"
+source "$HEGEL_LIB_PATH/build/install.sh"
+source "$HEGEL_LIB_PATH/build/plato.sh"
+source "$HEGEL_LIB_PATH/build/sync.sh"
+
+source "$HEGEL_LIB_PATH/nginx/install.sh"
+source "$HEGEL_LIB_PATH/nginx/control.sh"
+
+source "$HEGEL_LIB_PATH/tools/colours.sh"
+source "$HEGEL_LIB_PATH/tools/error.sh"
+source "$HEGEL_LIB_PATH/tools/git.sh"
+source "$HEGEL_LIB_PATH/tools/helpers.sh"
+source "$HEGEL_LIB_PATH/tools/mac.sh"
+source "$HEGEL_LIB_PATH/tools/network.sh"
+source "$HEGEL_LIB_PATH/tools/prompt.sh"
 source "$HEGEL_LIB_PATH/tools/tar.sh"
 source "$HEGEL_LIB_PATH/tools/tools.sh"
-source "$HEGEL_LIB_PATH/tools/error.sh"
-source "$HEGEL_LIB_PATH/sync/sync.sh"
-source "$HEGEL_LIB_PATH/deploy/deploy.sh"
-source "$HEGEL_LIB_PATH/nginx/nginx.sh"
-source "$HEGEL_LIB_PATH/setup/setup.sh"
+source "$HEGEL_LIB_PATH/tools/upstream.sh"
 
-#source "$HEGEL_PATH/config/hegelrc.sh"
-source "$HEGEL_LIB_PATH/xinstall.sh"
+source "$HEGEL_PATH/help/help.sh"
+
 
 hegel.source.config
 

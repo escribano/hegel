@@ -26,15 +26,3 @@ function hegel.setup.plato () {
 
 }
 
-function hegel.setup.nginx () {
-  if [ "$UNAME" == "Darwin" ]; then
-    template.execute.nginx dev
-    update.nginx.conf
-  elif [ "$UNAME" == "Linux" ]; then
-    update.nginx.conf
-  else
-    _fatal.error
-  fi
-}
-
-
