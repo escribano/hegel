@@ -69,6 +69,25 @@ function hegel.upgrade () {
 
 }
 
+function hegel.clone () {
+  if [ "$UNAME" == "Darwin" ]; then
+    local package_name=$1
+    local package_subdir=$2
+    local package_dir="$PHILOSOPHIE_PATH/$package_subdir"
+    mkdir -p $package_dir
+    pushd $package_dir > /dev/null
+    git clone git@github.com:escribano/$package_name.git
+    cd $package_name
+    source main.sh
+    echo "mate $package_dir"
+    popd > /dev/null
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
 
 
 
@@ -106,16 +125,4 @@ function hegel.mac.install.kant () {
   popd > /dev/null
 }
 
-function hegel.clone () {
-  local package_name=$1
-  local package_subdir=$2
-  local package_dir="$PHILOSOPHIE_PATH/$package_subdir"
-  mkdir -p $package_dir
-  pushd $package_dir > /dev/null
-  git clone git@github.com:escribano/$package_name.git
-  cd $package_name
-  source main.sh
-  echo "mate $package_dir"
-  popd > /dev/null
-}
 

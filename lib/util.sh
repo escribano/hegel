@@ -37,6 +37,36 @@ function push.hegel {
 
 }
 
+function push.owl {
+  if [ "$UNAME" == "Darwin" ]; then
+    pushd $DAEMON_PATH > /dev/null
+    git add -A # -all
+    git commit -am 'auto'
+    git push origin master
+    popd > /dev/null
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
+function push.civis {
+  if [ "$UNAME" == "Darwin" ]; then
+    pushd $CITY_PATH > /dev/null
+    git add -A # -all
+    git commit -am 'auto'
+    git push origin master
+    popd > /dev/null
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
 function pull.hegel {
   if [ "$UNAME" == "Darwin" ]; then
     _fatal.error
@@ -72,6 +102,17 @@ function mate.hegel () {
 
 }
 
+function mate.owl () {
+  if [ "$UNAME" == "Darwin" ]; then
+    mate $DAEMON_PATH
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
 function source.hegel {
   pushd $HEGEL_PATH > /dev/null
   source ./main.sh
@@ -80,6 +121,10 @@ function source.hegel {
 
 function gohegel () {
   cd $HEGEL_PATH
+}
+
+function gowl () {
+  cd $DAEMON_PATH
 }
 
 

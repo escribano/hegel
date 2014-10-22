@@ -48,6 +48,13 @@ hegel.source.config
 
 hegel.hook
 
+if [ "$UNAME" == "Darwin" ]; then
+  #export GOPATH=$HOME/code/habitatione/go
+  export GOPATH="$PHILOSOPHIE_PATH/go"
+  export PATH=$PATH:$GOPATH/bin
+fi
+
+
 #source "$LIB_PATH/.sh"
 #echo "ami functions installed from $LIB_PATH/ec2/ami.sh"
 
