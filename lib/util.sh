@@ -37,6 +37,18 @@ function push.hegel {
 
 }
 
+function pull.hegel {
+  if [ "$UNAME" == "Darwin" ]; then
+    _fatal.error
+  elif [ "$UNAME" == "Linux" ]; then
+    pushd $HEGEL_PATH > /dev/null
+    git pull origin master
+    popd > /dev/null
+  else
+    _fatal.error
+  fi
+}
+
 
 function hegel.info () {
   local version="0.0.1"
@@ -75,11 +87,6 @@ function gohegel () {
 #----------------------------------
 
 
-function pull.hegel {
-  pushd $HEGEL_PATH > /dev/null
-  git pull origin master
-  popd > /dev/null
-}
 
 function clone.kant () {
   pushd $HEGEL_PATH/.. > /dev/null

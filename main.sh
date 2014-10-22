@@ -37,9 +37,14 @@ source "$HEGEL_LIB_PATH/tools/tar.sh"
 source "$HEGEL_LIB_PATH/tools/tools.sh"
 source "$HEGEL_LIB_PATH/tools/error.sh"
 source "$HEGEL_LIB_PATH/sync/sync.sh"
+source "$HEGEL_LIB_PATH/deploy/deploy.sh"
+source "$HEGEL_LIB_PATH/nginx/nginx.sh"
+source "$HEGEL_LIB_PATH/setup/setup.sh"
 
-source "$HEGEL_PATH/config/hegelrc.sh"
+#source "$HEGEL_PATH/config/hegelrc.sh"
 source "$HEGEL_LIB_PATH/xinstall.sh"
+
+hegel.source.config
 
 hegel.hook
 
