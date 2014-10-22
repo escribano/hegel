@@ -29,6 +29,8 @@ function hegel.deploy.plato () {
 
 function deploy.owl () {
   if [ "$UNAME" == "Darwin" ]; then
+    export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
+    export COPYFILE_DISABLE=true
   	rm -rf /tmp/owl
   	mkdir -p /tmp/owl
   #	cp config.toml /tmp/owl
