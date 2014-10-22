@@ -27,6 +27,26 @@ function hegel.deploy.plato () {
   fi
 }
 
+function deploy.owl () {
+  if [ "$UNAME" == "Darwin" ]; then
+  	rm -rf /tmp/owl
+  	mkdir -p /tmp/owl
+  #	cp config.toml /tmp/owl
+  	cp config.prd.toml /tmp/owl
+  	cp -R static /tmp/owl
+  	cp -R views /tmp/owl
+  	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /tmp/owl/owl
+  	tar -c --exclude-from=$(HEGEL_PATH)/.tarignore -vzf /tmp/owl.tar.gz -C /tmp/owl .
+  	scp /tmp/owl.tar.gz www.habitacao.net:/tmp
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
+  
 function hegel.deploy.owl () {
   if [ "$UNAME" == "Darwin" ]; then
     deploy.owl
