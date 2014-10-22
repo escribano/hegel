@@ -36,7 +36,7 @@ source "$HEGEL_LIB_PATH/boot.sh"
 source "$HEGEL_LIB_PATH/tools/tar.sh"
 source "$HEGEL_LIB_PATH/tools/tools.sh"
 source "$HEGEL_LIB_PATH/tools/error.sh"
-source "$HEGEL_LIB_PATH/build/build.sh"
+source "$HEGEL_LIB_PATH/sync/sync.sh"
 
 source "$HEGEL_PATH/config/hegelrc.sh"
 source "$HEGEL_LIB_PATH/xinstall.sh"
