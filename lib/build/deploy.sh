@@ -7,7 +7,7 @@ function deploy.plato () {
     rm -rf $FROM_DIR
     mkdir -p $FROM_DIR
     cp -R $PHILOSOPHIE_PATH/html/$ARCHIVE_NAME $FROM_DIR
-    tar -c --exclude-from=$HEGEL_PATH/.tarignore -vzf "$DIST_DIR"/$ARCHIVE_NAME.tar.gz -C $FROM_DIR .
+    gtar -c --exclude-from=$HEGEL_PATH/.tarignore -vzf "$DIST_DIR"/$ARCHIVE_NAME.tar.gz -C $FROM_DIR .
     scp $DIST_DIR/$ARCHIVE_NAME.tar.gz $DIST_SRV.habitacao.net:/tmp
   elif [ "$UNAME" == "Linux" ]; then
     _fatal.error
@@ -38,7 +38,7 @@ function deploy.owl () {
   	cp -R "$DAEMON_PATH/static" /tmp/owl
   	cp -R "$DAEMON_PATH/views" /tmp/owl
   	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /tmp/owl/owl github.com/escribano/owl
-  	tar -c --exclude-from=$HEGEL_PATH/.tarignore -vzf /tmp/owl.tar.gz -C /tmp/owl .
+  	gtar -c --exclude-from=$HEGEL_PATH/.tarignore -vzf /tmp/owl.tar.gz -C /tmp/owl .
   	scp /tmp/owl.tar.gz www.habitacao.net:/tmp
   elif [ "$UNAME" == "Linux" ]; then
     _fatal.error
