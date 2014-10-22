@@ -86,6 +86,9 @@ if [ "$UNAME" == "Darwin" ]; then
   setup.ec2
 fi
 
+export COPY_EXTENDED_ATTRIBUTES_DISABLE=true
+export COPYFILE_DISABLE=true
+
 #source "$LIB_PATH/.sh"
 #echo "ami functions installed from $LIB_PATH/ec2/ami.sh"
 
