@@ -1,3 +1,16 @@
+function hegel.sync.all () {
+  
+  if [ "$UNAME" == "Darwin" ]; then
+    hegel.sync
+    hegel.sync.kant
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
 function hegel.sync () {
   
   if [ "$UNAME" == "Darwin" ]; then
