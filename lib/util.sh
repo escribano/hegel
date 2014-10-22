@@ -1,21 +1,46 @@
-function install.hegel () {
-  #VAR_ROOT_PATH="$ROOT_PATH/var"
-  #HEGEL_PATH="$ROOT_PATH/var/hegel"
-  #SHELL_ROOT_PATH="$ROOT_PATH/shell/hegel"
-  #PHILOSOPHIE_PATH="$HOME/philosophie"
-  #HEGEL_PATH="$PHILOSOPHIE_PATH/hegel"
-  #local user_profile="$HOME/.profile"
-  #export HEGEL_CONFIG="$HOME/.hegelconfig"
-  #cp $HEGEL_PATH/config/hegelconfig.sh $HEGEL_CONFIG
-  local hegel_config="$HEGEL_PATH/config/hegelrc"
-  cp $hegel_config.template.sh hegel_config.sh
-  #local count=0
-  #USER_PROFILE="$HOME/.profile"
-  #printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
-  printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
+function update.config () {
+  if [ "$UNAME" == "Darwin" ]; then
+    _fatal.error
+  elif [ "$UNAME" == "Linux" ]; then
+    local hegel_config="$HEGEL_PATH/config/hegelrc"
+    cp "${hegel_config}.template.sh" "${hegel_config}.sh"
+  else
+    _fatal.error
+  fi
 }
 
+function hegel.update () {
+  if [ "$UNAME" == "Darwin" ]; then
+    _fatal.error
+  elif [ "$UNAME" == "Linux" ]; then
+    pull.hegel
+    source.hegel
+    update.config
+  else
+    _fatal.error
+  fi
+
+}
+
+function push.hegel {
+  if [ "$UNAME" == "Darwin" ]; then
+    pushd $HEGEL_PATH > /dev/null
+    git add -A # -all
+    git commit -am 'auto'
+    git push origin master
+    popd > /dev/null
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
+
+}
+
+
 function hegel.info () {
+  local version="0.0.1"
+  printf "Version: $version\n"
   printf "UNAME: $UNAME\n"
   printf "READLINK: $READLINK\n"
   printf "PHILOSOPHIE_PATH: $PHILOSOPHIE_PATH\n"
@@ -25,18 +50,14 @@ function hegel.info () {
 }
 
 function mate.hegel () {
-  mate $HEGEL_PATH
-}
+  if [ "$UNAME" == "Darwin" ]; then
+    mate $HEGEL_PATH
+  elif [ "$UNAME" == "Linux" ]; then
+    _fatal.error
+  else
+    _fatal.error
+  fi
 
-function update.config () {
-  local hegel_config="$HEGEL_PATH/config/hegelrc"
-  cp "${hegel_config}.template.sh" "${hegel_config}.sh"
-}
-
-function hegel.update () {
-  pull.hegel
-  source.hegel
-  update.config
 }
 
 function source.hegel {
@@ -49,13 +70,10 @@ function gohegel () {
   cd $HEGEL_PATH
 }
 
-function push.hegel {
-  pushd $HEGEL_PATH > /dev/null
-  git add -A # -all
-  git commit -am 'auto'
-  git push origin master
-  popd > /dev/null
-}
+
+
+#----------------------------------
+
 
 function pull.hegel {
   pushd $HEGEL_PATH > /dev/null
@@ -76,5 +94,20 @@ function clone.hegel () {
 }
 
 
-
+function install.hegel () {
+  #VAR_ROOT_PATH="$ROOT_PATH/var"
+  #HEGEL_PATH="$ROOT_PATH/var/hegel"
+  #SHELL_ROOT_PATH="$ROOT_PATH/shell/hegel"
+  #PHILOSOPHIE_PATH="$HOME/philosophie"
+  #HEGEL_PATH="$PHILOSOPHIE_PATH/hegel"
+  #local user_profile="$HOME/.profile"
+  #export HEGEL_CONFIG="$HOME/.hegelconfig"
+  #cp $HEGEL_PATH/config/hegelconfig.sh $HEGEL_CONFIG
+  local hegel_config="$HEGEL_PATH/config/hegelrc"
+  cp $hegel_config.template.sh hegel_config.sh
+  #local count=0
+  #USER_PROFILE="$HOME/.profile"
+  #printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
+  printf "\nsource $HEGEL_PATH/main.sh\n" >> $user_profile
+}
 

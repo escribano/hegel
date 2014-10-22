@@ -18,6 +18,13 @@ function untargz () {
   tar -xvzf "$@"
 }
 
+
+
+#--------------------------------------
+
+
+
+
 function _send.this () {
   DIST_DIR="/Users/ademir/dist"
   DIST_SRV=basic.ami

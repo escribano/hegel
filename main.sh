@@ -33,8 +33,10 @@ export HEGEL_LIB_PATH="$HEGEL_PATH/lib"
 
 source "$HEGEL_LIB_PATH/util.sh"
 source "$HEGEL_LIB_PATH/boot.sh"
-source "$HEGEL_LIB_PATH/tar.sh"
-source "$HEGEL_LIB_PATH/tools.sh"
+source "$HEGEL_LIB_PATH/tools/tar.sh"
+source "$HEGEL_LIB_PATH/tools/tools.sh"
+source "$HEGEL_LIB_PATH/tools/error.sh"
+source "$HEGEL_LIB_PATH/build/build.sh"
 
 source "$HEGEL_PATH/config/hegelrc.sh"
 source "$HEGEL_LIB_PATH/xinstall.sh"

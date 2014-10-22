@@ -11,24 +11,32 @@ function sudoi () {
 }
 
 function master.user {
-  sudo -i
+  if [ "$UNAME" == "Darwin" ]; then
+    _fatal.error
+  elif [ "$UNAME" == "Linux" ]; then
+    sudo -i
   
-  useradd -m ademir -s /bin/bash
-  #passwd ademir
-  #gedulah
+    useradd -m ademir -s /bin/bash
+    #passwd ademir
+    #gedulah
   
-  mkdir /home/ademir/.ssh
-  wget -qO- https://github.com/escribano/hegel/raw/master/config/id_rsa.pub \
-    >> /home/ademir/.ssh/authorized_keys
-  chmod 700 /home/ademir/.ssh
-  chmod 600 /home/ademir/.ssh/authorized_keys
-  chown -R ademir.ademir /home/ademir
+    mkdir /home/ademir/.ssh
+    wget -qO- https://github.com/escribano/hegel/raw/master/config/id_rsa.pub \
+      >> /home/ademir/.ssh/authorized_keys
+    chmod 700 /home/ademir/.ssh
+    chmod 600 /home/ademir/.ssh/authorized_keys
+    chown -R ademir.ademir /home/ademir
   
-  #echo "ademir ALL=(ALL:ALL) ALL" > /etc/sudoers.d/master-user
-  echo "ademir ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/master-user
-  chmod 0440 /etc/sudoers.d/master-user
+    #echo "ademir ALL=(ALL:ALL) ALL" > /etc/sudoers.d/master-user
+    echo "ademir ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/master-user
+    chmod 0440 /etc/sudoers.d/master-user
   
-  history -c
+    history -c
+  else
+    _fatal.error
+  fi
+  
+
 }
 
 function intall.packages () {
