@@ -9,6 +9,7 @@ function hegel.setup.owl () {
     sudo rm -rf $config_dir && sudo mkdir -p $config_dir
     sudo tar xzvf /tmp/owl.tar.gz -C $install_dir
     sudo mv $install_dir/config.prd.toml $config_dir/config.toml
+    upgrade.service.owl
   else
     _fatal.error
   fi
