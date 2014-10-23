@@ -35,6 +35,7 @@ function deploy.owl () {
   	mkdir -p /tmp/owl
   #	cp config.toml /tmp/owl
   	cp "$DAEMON_PATH/config.prd.toml" /tmp/owl
+    cp -R "$DAEMON_PATH/bin" /tmp/owl
   	cp -R "$DAEMON_PATH/static" /tmp/owl
   	cp -R "$DAEMON_PATH/views" /tmp/owl
   	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o /tmp/owl/owl github.com/escribano/owl
