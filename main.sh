@@ -33,12 +33,12 @@ export HEGEL_LIB_PATH="$HEGEL_PATH/lib"
 
 source "$HEGEL_LIB_PATH/util.sh"
 
-source "$HEGEL_LIB_PATH/amazon/ec2.sh"
-source "$HEGEL_LIB_PATH/amazon/boot.sh"
-source "$HEGEL_LIB_PATH/amazon/ec2-ebs.sh"
-source "$HEGEL_LIB_PATH/amazon/ec2-address.sh"
-source "$HEGEL_LIB_PATH/amazon/ephemeral.sh"
-source "$HEGEL_LIB_PATH/amazon/ebs.sh"
+
+if [ "$UNAME" == "Linux" ]; then
+  source "$HEGEL_LIB_PATH/aws/aws-debian.sh"
+  source "$HEGEL_LIB_PATH/aws/boot-debian.sh"
+  source "$HEGEL_LIB_PATH/aws/ephemeral.sh"
+fi
 
 source "$HEGEL_LIB_PATH/install/install.sh"
 source "$HEGEL_LIB_PATH/install/sync.sh"
