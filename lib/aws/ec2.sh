@@ -153,6 +153,36 @@ function ssh.hab.admin () {
 
 
 
+  function config.access () {
+  	# hostname
+    echo "sp" > /etc/hostname
+    hostname -F /etc/hostname	
+    echo '127.0.0.1       sp.mapa.io.int          sp' >> /etc/hosts
+    
+    sudo -i
+    useradd -m ademir -s /bin/bash
+    passwd ademir
+    gedulah
+
+    visudo
+    #ademir    ALL=(ALL) ALL
+
+    sudo -i
+    passwd root
+    gedulah
+
+    	#mac
+    scp -i ~/.ec2/rsa-ec2-sa.pem .ssh/id_rsa.pub admin@sp.mapa.io:
+
+    cp /home/admin/id_rsa.pub /home/ademir/
+    chown ademir.ademir /home/ademir/id_rsa.pub
+    su ademir
+    cd /home/ademir
+    mkdir .ssh
+    cat id_rsa.pub >> ~/.ssh/authorized_keys
+    exit
+}
+
 function end.setup.ready () {
   apt-get update && apt-get upgrade -y
   apt-get install build-essential curl git -y
@@ -441,4 +471,15 @@ function ec2.help () {
 
 
 
+function aws.install () {
+  wget http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip
+  sudo mkdir /usr/local/ec2
+  sudo unzip ec2-api-tools.zip -d /usr/local/ec2
+  which java
+  file $(which java)
+  file /etc/alternatives/java
+  $JAVA_HOME/bin/java -version
+  ls -al ~ | grep profile
+  ec2-describe-regions
+}
 
