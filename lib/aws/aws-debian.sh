@@ -43,6 +43,17 @@ function config.access () {
   exit
 }
 
+function end.setup.ready () {
+  apt-get update && apt-get upgrade -y
+  apt-get install build-essential curl git -y
+  mkdir -p /opt/gis ; cd /opt/gis
+  git clone https://github.com/escribano/setup.git
+  cd setup
+  source ./install
+  add.setup.to.bashrc
+  history -c
+}
+
 function fdisk.debian {
   fdisk -l
 }

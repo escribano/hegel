@@ -118,37 +118,37 @@ function ssh.hab.admin () {
 
 
 
-  function create.jessie.ami () {
-    # create.ready.ami
-    #if [ -z "$1" ]; then
-    #  echo "No argument supplied"
-    #  return 1
-    #fi
-    #SERVER_NAME=$1
-    SERVER_NAME="jessie"
-    INSTANCE_ID=`ec2-describe-instances --region sa-east-1 --filter tag:Name=$SERVER_NAME | awk '$1 == "INSTANCE" {print $2}'`
-    #INSTANCE_ID=$1
-    JESSIE_AMI_NAME="debian-jessie-amd64-hvm-$(date '+%Y-%m-%d-%H-%M')-ebs-locale"
-    JESSIE_AMI_DESC="Debian jessie amd64"
-    #AMI_DESCRIPTION=$3
-    #ec2-create-image $INSTANCE_ID --name $AMI_NAME --description $AMI_DESCRIPTION
-    #ec2-create-image i-0cf2f919 --name basic-debian-jessie-testing-x86_64-ebs-2014-02-28
-    ec2-create-image $EC2_REGION $INSTANCE_ID --name $JESSIE_AMI_NAME \
-      --description $JESSIE_AMI_DESC \
-      > $EC2_VAR_PATH/new.jessie.ami.txt
-    JESSIE_AMI=`cat $EC2_VAR_PATH/new.jessie.ami.txt | awk '$1 == "IMAGE" {print $2}'`
-    ec2-create-tags $EC2_REGION $JESSIE_AMI --tag "Name=jessie.ami"
-    sleep 5
-    ec2-describe-images $EC2_REGION $JESSIE_AMI
-  }
+function create.jessie.ami () {
+  # create.ready.ami
+  #if [ -z "$1" ]; then
+  #  echo "No argument supplied"
+  #  return 1
+  #fi
+  #SERVER_NAME=$1
+  SERVER_NAME="jessie"
+  INSTANCE_ID=`ec2-describe-instances --region sa-east-1 --filter tag:Name=$SERVER_NAME | awk '$1 == "INSTANCE" {print $2}'`
+  #INSTANCE_ID=$1
+  JESSIE_AMI_NAME="debian-jessie-amd64-hvm-$(date '+%Y-%m-%d-%H-%M')-ebs-locale"
+  JESSIE_AMI_DESC="Debian jessie amd64"
+  #AMI_DESCRIPTION=$3
+  #ec2-create-image $INSTANCE_ID --name $AMI_NAME --description $AMI_DESCRIPTION
+  #ec2-create-image i-0cf2f919 --name basic-debian-jessie-testing-x86_64-ebs-2014-02-28
+  ec2-create-image $EC2_REGION $INSTANCE_ID --name $JESSIE_AMI_NAME \
+    --description $JESSIE_AMI_DESC \
+    > $EC2_VAR_PATH/new.jessie.ami.txt
+  JESSIE_AMI=`cat $EC2_VAR_PATH/new.jessie.ami.txt | awk '$1 == "IMAGE" {print $2}'`
+  ec2-create-tags $EC2_REGION $JESSIE_AMI --tag "Name=jessie.ami"
+  sleep 5
+  ec2-describe-images $EC2_REGION $JESSIE_AMI
+}
 
 
-  function copy.key {
-    SERVER_NAME=$1
-    scp -i ~/.ec2/rsa-ec2-sa.pem ~/.ssh/id_rsa.pub admin@$SERVER_NAME.mapa.io:
-    #ssh -i ~/.ec2/rsa-ec2-sa.pem admin@basic.mapa.io
-    #sudo -i
-  }
+function copy.key {
+  SERVER_NAME=$1
+  scp -i ~/.ec2/rsa-ec2-sa.pem ~/.ssh/id_rsa.pub admin@$SERVER_NAME.mapa.io:
+  #ssh -i ~/.ec2/rsa-ec2-sa.pem admin@basic.mapa.io
+  #sudo -i
+}
 
 
 
