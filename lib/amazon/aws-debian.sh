@@ -1,33 +1,46 @@
+function install.pg () {
+  update-locale LC_CTYPE=en_US.UTF-8
 
+  nano /etc/environment
 
-  function config.access () {
-  	# hostname
-    echo "sp" > /etc/hostname
-    hostname -F /etc/hostname	
-    echo '127.0.0.1       sp.mapa.io.int          sp' >> /etc/hosts
-    
-    sudo -i
-    useradd -m ademir -s /bin/bash
-    passwd ademir
-    gedulah
+  LANGUAGE=pt_BR.UTF-8
+  psql -d postgres -c "show SERVER_ENCODING;"
+  psql -d postgres -c "show LC_COLLATE;"
+  psql -d postgres -c "show LC_CTYPE;"
 
-    visudo
-    #ademir    ALL=(ALL) ALL
+  sudo -i
 
-    sudo -i
-    passwd root
-    gedulah
+  update-locale LC_CTYPE=en_US.UTF-8
+}
 
-    	#mac
-    scp -i ~/.ec2/rsa-ec2-sa.pem .ssh/id_rsa.pub admin@sp.mapa.io:
+function config.access () {
+	# hostname
+  echo "sp" > /etc/hostname
+  hostname -F /etc/hostname	
+  echo '127.0.0.1       sp.mapa.io.int          sp' >> /etc/hosts
+  
+  sudo -i
+  useradd -m ademir -s /bin/bash
+  passwd ademir
+  gedulah
 
-    cp /home/admin/id_rsa.pub /home/ademir/
-    chown ademir.ademir /home/ademir/id_rsa.pub
-    su ademir
-    cd /home/ademir
-    mkdir .ssh
-    cat id_rsa.pub >> ~/.ssh/authorized_keys
-    exit
+  visudo
+  #ademir    ALL=(ALL) ALL
+
+  sudo -i
+  passwd root
+  gedulah
+
+  	#mac
+  scp -i ~/.ec2/rsa-ec2-sa.pem .ssh/id_rsa.pub admin@sp.mapa.io:
+
+  cp /home/admin/id_rsa.pub /home/ademir/
+  chown ademir.ademir /home/ademir/id_rsa.pub
+  su ademir
+  cd /home/ademir
+  mkdir .ssh
+  cat id_rsa.pub >> ~/.ssh/authorized_keys
+  exit
 }
 
 function fdisk.debian {

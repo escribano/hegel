@@ -194,27 +194,6 @@ function end.setup.ready () {
   history -c
 }
 
-
-function install.pg () {
-  update-locale LC_CTYPE=en_US.UTF-8
-
-  nano /etc/environment
-
-  LANGUAGE=pt_BR.UTF-8
-  psql -d postgres -c "show SERVER_ENCODING;"
-  psql -d postgres -c "show LC_COLLATE;"
-  psql -d postgres -c "show LC_CTYPE;"
-
-  sudo -i
-
-  update-locale LC_CTYPE=en_US.UTF-8
-}
-
-
-
-
-
-
 function new.hab () { 
   #MAPA_AMI=`ec2-describe-images --region sa-east-1 --filter tag:Name=mapa.ami.v2 | awk '$1 == "IMAGE" {print $2}'`
   READY_AMI=`ec2-describe-images --region sa-east-1 --filter tag:Name=ready.ami | awk '$1 == "IMAGE" {print $2}'`
