@@ -14,24 +14,24 @@ function master.user {
   if [ "$UNAME" == "Darwin" ]; then
     _fatal.error
   elif [ "$UNAME" == "Linux" ]; then
-    sudo -i
+    #sudo -i
   
-    useradd -m ademir -s /bin/bash
+    sudo useradd -m ademir -s /bin/bash
     #passwd ademir
     #gedulah
   
-    mkdir /home/ademir/.ssh
-    wget -qO- https://github.com/escribano/hegel/raw/master/config/id_rsa.pub \
+    sudo mkdir /home/ademir/.ssh
+    sudo wget -qO- https://github.com/escribano/hegel/raw/master/config/id_rsa.pub \
       >> /home/ademir/.ssh/authorized_keys
-    chmod 700 /home/ademir/.ssh
-    chmod 600 /home/ademir/.ssh/authorized_keys
-    chown -R ademir.ademir /home/ademir
+    sudo chmod 700 /home/ademir/.ssh
+    sudo chmod 600 /home/ademir/.ssh/authorized_keys
+    sudo chown -R ademir.ademir /home/ademir
   
     #echo "ademir ALL=(ALL:ALL) ALL" > /etc/sudoers.d/master-user
-    echo "ademir ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/master-user
-    chmod 0440 /etc/sudoers.d/master-user
+    sudo echo "ademir ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/master-user
+    sudo chmod 0440 /etc/sudoers.d/master-user
   
-    history -c
+    #history -c
   else
     _fatal.error
   fi

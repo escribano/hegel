@@ -50,7 +50,8 @@ windowTitle = "$TM_DISPLAYNAME${TM_DIRECTORY/\A(?:\/Users\/ademir\/code\/(?:arch
 # ---------------------------------------------------------
 # windowTitle    = "$TM_DISPLAYNAME - ${CWD/^.*\///}"
 
-windowTitle = "$TM_DISPLAYNAME${TM_DIRECTORY/\A(?:\/Users\/ademir\/code\/(?:archive\/)?(?!\b(?:gis|memo|mapa)\b)\w+\/?(.*)|(.+))\z/${2:? – ${2/\/Users\/ademir\/code\//(/}:${1/\A(?=.)/ - /}}/}) - ($TM_SCM_BRANCH)"
+# windowTitle = "$TM_DISPLAYNAME${TM_DIRECTORY/\A(?:\/Users\/ademir\/code\/(?:archive\/)?(?!\b(?:gis|memo|mapa)\b)\w+\/?(.*)|(.+))\z/${2:? – ${2/\/Users\/ademir\/code\//(/}:${1/\A(?=.)/ - /}}/}) - ($TM_SCM_BRANCH)"
+windowTitle = "${CWD/^.*\///} - $TM_DISPLAYNAME ${TM_DIRECTORY/\A(?:\/Users\/ademir\/code\/philosophie\/go\/src\/github.com\/escribano\/(?:go\/)?(?!\b(?:dowl|dgo|reference)\b)\w+\/?(.*)|(.+))\z/${2:? – ${2/\/Users\/ademir/~/}:${1/\A(?=.)/ – /}}/} ($TM_SCM_BRANCH)"
 
 
 #You have to create a .tm_properties file in your project root and add this line:
