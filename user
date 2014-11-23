@@ -10,7 +10,7 @@ sudo useradd -m ademir -s /bin/bash
 #gedulah
 
 sudo mkdir /home/ademir/.ssh
-sudo wget -qO- https://github.com/escribano/hegel/raw/master/config/id_rsa.pub \
+sudo wget -qO- https://github.com/escribano/hegel/raw/master/profile/id_rsa.pub \
   >> /home/ademir/.ssh/authorized_keys
 sudo chmod 700 /home/ademir/.ssh
 sudo chmod 600 /home/ademir/.ssh/authorized_keys
