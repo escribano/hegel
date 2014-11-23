@@ -3,6 +3,8 @@
 # wget -qO- https://github.com/escribano/hegel/raw/master/user | bash
 #
 
+sudo -i
+
 sudo useradd -m ademir -s /bin/bash
 #passwd ademir
 #gedulah
