@@ -38,6 +38,7 @@ if [ "$UNAME" == "Linux" ]; then
   source "$HEGEL_LIB_PATH/aws/aws-debian.sh"
   source "$HEGEL_LIB_PATH/aws/boot-debian.sh"
   source "$HEGEL_LIB_PATH/aws/ephemeral.sh"
+  source "$HEGEL_LIB_PATH/aws/setup.sh"
 fi
 
 source "$HEGEL_LIB_PATH/install/install.sh"
