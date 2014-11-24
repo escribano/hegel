@@ -33,13 +33,14 @@ echo "------------------------------------------------------------------"
 echo "------------------------------------------------------------------"
 
 #read -e -p "Was ist mein name?: " hostname
-read -e -p "Was ist mein name?: " hostname
+read -p "Was ist mein name?: " hostname
 
 if [ "$hostname" == "" ]; then
   #_fatal.error
   printf "nicht gedurfen\n"
   exit 3
   exit 3
+  return 3
 fi
 
 echo "$hostname"
