@@ -43,9 +43,9 @@ function install.postgres () {
 
 function recreate.cluster () {
   set.locale.br
-  pg_dropcluster --stop 9.4 main
+  sudo pg_dropcluster --stop 9.4 main
   #pg_createcluster --locale de_DE.UTF-8 --start 8.3 main
-  pg_createcluster --locale --start 9.4 main
+  sudo pg_createcluster --locale --start 9.4 main
   set.locale.en
 }
 
