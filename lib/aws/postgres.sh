@@ -16,7 +16,7 @@ function set.locale.br () {
   # export LC_ALL=en_US.UTF-8
 }
 
-function set.locale.us () {
+function set.locale.en () {
   export LANG=en_US.UTF-8
   # export LANGUAGE=
   # export LC_CTYPE="en_US.UTF-8"
@@ -45,7 +45,7 @@ function recreate.cluster () {
   set.locale.br
   sudo pg_dropcluster --stop 9.4 main
   #pg_createcluster --locale de_DE.UTF-8 --start 8.3 main
-  sudo pg_createcluster --start 9.4 main
+  sudo pg_createcluster --locale pt_BR.UTF-8 --start 9.4 main
   set.locale.en
 }
 
