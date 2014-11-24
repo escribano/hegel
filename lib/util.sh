@@ -9,7 +9,7 @@ function update.config () {
   fi
 }
 
-function hegel.update () {
+function update.hegel () {
   if [ "$UNAME" == "Darwin" ]; then
     _fatal.error
   elif [ "$UNAME" == "Linux" ]; then
