@@ -59,7 +59,7 @@ hegel.source.config
 
 #service postgres status
 #/etc/init.d/postgresql status
-local pgtest=`which psql`
+PGTEST=`which psql`
 if [ "$?" -gt "0" ]; then
   echo "Postgres Not installed".
 else
