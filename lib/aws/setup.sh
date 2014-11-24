@@ -9,7 +9,7 @@ function fixhostname () {
   #sudo echo '127.0.0.1       hegel.habitacao.net          hegel' >> /etc/hosts
   
   echo "$hostname" | sudo tee /etc/hostname
-  echo "127.0.0.1 @hostname" | sudo tee -a /etc/hosts
+  echo "127.0.0.1 ${hostname}" | sudo tee -a /etc/hosts
   sudo hostname -F /etc/hostname
 }
 
