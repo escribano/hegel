@@ -84,4 +84,4 @@ function teste.sudo () {
   logout
 }
 
-_config.db.auth
+_config.pg.auth
