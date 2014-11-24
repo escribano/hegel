@@ -48,10 +48,12 @@ source "$HEGEL_LIB_PATH/install/sync.sh"
 
 source "$HEGEL_LIB_PATH/tools/error.sh"
 
+source "$HEGEL_LIB_PATH/database/db-settings.sh"
+source "$HEGEL_LIB_PATH/database/db-setup.sh"
+
+
 source "$HEGEL_PATH/help/help.sh"
 
-source "$HEGEL_PATH/database/db-settings.sh"
-source "$HEGEL_PATH/database/db-setup.sh"
 
 hegel.source.config
 
