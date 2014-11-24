@@ -39,8 +39,17 @@ popd > /dev/null
 # logout
 # ksh fichte
 # sudo nano /etc/hosts
+# format.ssdb
+# test.ssdb
+# test.root
+# config.swap
+# free -h
+# df -h
+
 # sudo dpkg-reconfigure locales
 # install.postgres
 # config.pg.auth
-# format.ssdb
-# config.swap
+
+# create.philo.db
+# verify.philo.db
+

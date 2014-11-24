@@ -57,7 +57,15 @@ source "$HEGEL_PATH/help/help.sh"
 
 hegel.source.config
 
-_db.settings
+#service postgres status
+#/etc/init.d/postgresql status
+local pgtest=`which psql`
+if [ "$?" -gt "0" ]; then
+  echo "Postgres Not installed".
+else
+  echo "Postgres settings"
+  _db.settings
+fi
 
 hegel.hook
 
