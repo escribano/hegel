@@ -22,3 +22,25 @@ echo "source `pwd`/main.sh"
 echo "--------------------"
 popd > /dev/null
 
+#
+
+# ec2
+# ip
+# r53
+# sudo discoveryutil udnsflushcaches
+# ksh.admin fichte
+# wget -qO- https://github.com/escribano/hegel/raw/master/boot | bash
+# logout
+# ksh fichte
+# wget -qO- https://github.com/escribano/hegel/raw/master/install | bash
+# source /home/ademir/philosophie/hegel/main.sh
+# nano .bashrc
+# fixhostname fichte
+# logout
+# ksh fichte
+# sudo nano /etc/hosts
+# sudo dpkg-reconfigure locales
+# install.postgres
+# config.pg.auth
+# format.ssdb
+# config.swap

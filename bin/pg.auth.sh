@@ -27,13 +27,15 @@ function _config.pg.auth () {
 }
 
 function stop.postgres {
-  /etc/init.d/postgresql   stop
+  /etc/init.d/postgresql stop
 }
 
 function start.postgres {
   /etc/init.d/postgresql start
 }
 
+# sudo cat /etc/postgresql/9.4/main/pg_hba.conf
+# sudo cat /etc/postgresql/9.4/main/pg_ident.conf
 function config.cluster {
   if [ "$UNAME" == "Linux" ]; then
   cp /etc/postgresql/"${pgver}"/main/pg_hba.conf /etc/postgresql/"${pgver}"/main/pg_hba.conf.backup

@@ -1,13 +1,22 @@
 function install.postgres () {
+  #sudo service postgresql restart
+  
   #export LANGUAGE=en_US.UTF-8
   #export LANG=en_US.UTF-8
   #export LC_ALL=en_US.UTF-8
   #locale-gen en_US.UTF-8
   #dpkg-reconfigure locales
   #export LANG=pt_BR.UTF-8
+  #sudo apt-get remove postgresql-9.4-postgis-2.1 postgresql-9.4-plv8 postgresql-contrib-9.4 -y
   sudo apt-get install postgresql-9.4-postgis-2.1 postgresql-9.4-plv8 postgresql-contrib-9.4 -y
-  sudo pg_dropcluster --stop 9.4 main
-  sudo pg_createcluster --locale=pt_BR.UTF-8 --start 9.4 main
+  #sudo pg_dropcluster --stop 9.4 main
+  #sudo pg_createcluster --locale=pt_BR.UTF-8 --start 9.4 main
+}
+
+function find.postgres () {
+  ps -ef | grep postgres
+  _psql "SHOW hba_file;"
+  #cat /usr/local/var/postgres/pg_hba.conf
 }
 
 function config.pg.auth () {
@@ -31,6 +40,10 @@ function show.postgres.version () {
   _psql "select version();" -t -A
   #psql -U ademir -d postgres -c "SHOW server_version;"
 }
+
+
+
+
 
 
 

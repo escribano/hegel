@@ -50,7 +50,12 @@ source "$HEGEL_LIB_PATH/tools/error.sh"
 
 source "$HEGEL_PATH/help/help.sh"
 
+source "$HEGEL_PATH/database/db-settings.sh"
+source "$HEGEL_PATH/database/db-setup.sh"
+
 hegel.source.config
+
+_db.settings
 
 hegel.hook
 
