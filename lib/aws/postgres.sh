@@ -1,3 +1,19 @@
+function install.postgres () {
+  #export LANGUAGE=en_US.UTF-8
+  #export LANG=en_US.UTF-8
+  #export LC_ALL=en_US.UTF-8
+  #locale-gen en_US.UTF-8
+  #dpkg-reconfigure locales
+  #export LANG=pt_BR.UTF-8
+  sudo apt-get install postgresql-9.4-postgis-2.1 postgresql-9.4-plv8 postgresql-contrib-9.4 -y
+  sudo pg_dropcluster --stop 9.4 main
+  sudo pg_createcluster --locale=pt_BR.UTF-8 --start 9.4 main
+}
+
+function config.pg.auth () {
+  sudo bash $HEGEL_PATH/bin/pg.auth.sh
+}
+
 function set.locale.br () {
   export LANG=pt_BR.UTF-8
   # export LANGUAGE=
@@ -35,20 +51,25 @@ function set.locale.en () {
 }
 
 
-function install.postgres () {
-  set.locale.br
-  sudo apt-get install postgresql-9.4-postgis-2.1 postgresql-9.4-plv8 postgresql-contrib-9.4 -y
-  set.locale.en
-}
+
 
 function recreate.cluster () {
   set.locale.br
   sudo pg_dropcluster --stop 9.4 main
   #pg_createcluster --locale de_DE.UTF-8 --start 8.3 main
   sudo pg_createcluster --locale pt_BR.UTF-8 --start 9.4 main
+  sudo pg_createcluster --locale en_US.UTF-8 --start 9.2 main
+  sudo pg_dropcluster --stop 9.4 main
+  sudo pg_createcluster --locale=pt_BR.UTF-8 --start 9.4 main
   set.locale.en
 }
 
+function more.cluster () {
+  pg_lsclusters
+  psql "show LC_COLLATE;"
+  psql "show LC_CTYPE;"
+
+}
 
 function more.locales () {
   locale -a
