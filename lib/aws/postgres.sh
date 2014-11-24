@@ -14,6 +14,33 @@ function config.pg.auth () {
   sudo bash $HEGEL_PATH/bin/pg.auth.sh
 }
 
+function _psql () {
+  SQLCMD=$1
+  shift
+  psql -U postgres -d postgres -c "$SQLCMD" "$@"
+}
+
+function pf () {
+  SQLCMD=$1
+  shift
+  psql -U $PHILO_USER -d $PHILO_DB -c "$SQLCMD" "$@"
+}
+
+function show.postgres.version () {
+  #psql -U $DB_USER -d $DB_NAME -c "select version();"
+  _psql "select version();" -t -A
+  #psql -U ademir -d postgres -c "SHOW server_version;"
+}
+
+
+
+
+
+
+
+
+
+
 function set.locale.br () {
   export LANG=pt_BR.UTF-8
   # export LANGUAGE=
