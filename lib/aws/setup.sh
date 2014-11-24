@@ -29,6 +29,26 @@ function config.swap () {
 }
 
 
+function test.ssdb () {
+  # Test SSD disk speed
+  pushd /mnt/ssdb/ > /dev/null
+  sudo /bin/dd if=/dev/zero of=outfile.tmp bs=1M count=2048
+  popd > /dev/null
+}
+
+function test.root () {
+  # Test EBS speed on c3.large
+  pushd ~ > /dev/null
+  sudo /bin/dd if=/dev/zero of=outfile.tmp bs=1M count=2048
+  popd > /dev/null
+}
+
+
+
+
+
+
+
 
 
 
@@ -47,16 +67,7 @@ function format.b () {
   sudo mount -t ext4 /dev/xvdb /mnt2
 }
 
-function test.ssd () {
-  # Test SSD disk speed
-  cd /media/ephemeral0/
-  sudo /bin/dd if=/dev/zero of=outfile.tmp bs=1M count=2048
 
-
-  # Test EBS speed on c3.large
-  cd ~
-  sudo /bin/dd if=/dev/zero of=outfile.tmp bs=1M count=2048
-}
 
 
 
