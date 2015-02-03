@@ -1,0 +1,42 @@
+test.ssdb
+test.root
+
+c3.2xlarge
+us-east-1e
+Size
+30 GiB
+Volume type
+io1
+900
+
+Compute optimized
+c3.2xlarge
+8
+15
+2 x 80 (SSD)
+Yes
+High
+
+c3.2xlarge	8	28	15	2 x 80 SSD	$0.420 per Hour
+
+------
+
+General purpose
+m3.2xlarge
+8
+30
+2 x 80 (SSD)
+Yes
+High
+
+us-east-1e
+Size
+30 GiB
+Volume type
+io1
+900
+
+$0.560 per Hour
+m3.2xlarge	8	26	30	2 x 80 SSD	$0.560 per Hour
+
+-------

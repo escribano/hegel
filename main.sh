@@ -35,11 +35,11 @@ source "$HEGEL_LIB_PATH/util.sh"
 
 
 if [ "$UNAME" == "Linux" ]; then
-  source "$HEGEL_LIB_PATH/aws/aws-debian.sh"
-  source "$HEGEL_LIB_PATH/aws/boot-debian.sh"
-  source "$HEGEL_LIB_PATH/aws/ephemeral.sh"
+  #source "$HEGEL_LIB_PATH/aws/aws-debian.sh"
+  #source "$HEGEL_LIB_PATH/aws/boot-debian.sh"
+  #source "$HEGEL_LIB_PATH/aws/ephemeral.sh"
   source "$HEGEL_LIB_PATH/aws/setup.sh"
-  source "$HEGEL_LIB_PATH/aws/ebs.sh"
+  #source "$HEGEL_LIB_PATH/aws/ebs.sh"
   source "$HEGEL_LIB_PATH/aws/postgres.sh"
 fi
 
@@ -51,8 +51,11 @@ source "$HEGEL_LIB_PATH/tools/error.sh"
 source "$HEGEL_LIB_PATH/database/db-settings.sh"
 source "$HEGEL_LIB_PATH/database/db-setup.sh"
 
+source "$HEGEL_LIB_PATH/nginx/setup.sh"
 
-source "$HEGEL_PATH/help/help.sh"
+source "$HEGEL_LIB_PATH/mapad/setup.sh"
+
+#source "$HEGEL_PATH/help/help.sh"
 
 
 hegel.source.config

@@ -32,6 +32,7 @@ function config.swap () {
 function test.ssdb () {
   # Test SSD disk speed
   pushd /mnt/ssdb/ > /dev/null
+  # sudo dd if=/dev/sdf of=/dev/null bs=16384
   sudo /bin/dd if=/dev/zero of=outfile.tmp bs=1M count=2048
   popd > /dev/null
 }

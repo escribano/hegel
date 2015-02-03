@@ -36,11 +36,13 @@ popd > /dev/null
 # source /home/ademir/philosophie/hegel/main.sh
 # nano .bashrc
 # fixhostname fichte
+# sudo nano /etc/fstab
 # logout
 # ksh fichte
 # sudo nano /etc/hosts
 # format.ssdb
 # test.ssdb
+# sudo dd if=/dev/sdf of=/dev/null bs=16384
 # test.root
 # config.swap
 # free -h
@@ -49,7 +51,7 @@ popd > /dev/null
 # sudo dpkg-reconfigure locales
 # install.postgres
 # config.pg.auth
-
+# logout
 # create.philo.db
 # verify.philo.db
 
