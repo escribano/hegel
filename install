@@ -4,8 +4,9 @@
 #
 
 export PHILOSOPHIE_PATH="$HOME/philosophie"
-mkdir -p $PHILOSOPHIE_PATH
-pushd $PHILOSOPHIE_PATH > /dev/null
+export PHILOSOPHIE_XPATH="$PHILOSOPHIE_PATH/shell"
+mkdir -p $PHILOSOPHIE_XPATH
+pushd $PHILOSOPHIE_XPATH > /dev/null
 git clone https://github.com/escribano/hegel.git
 cd hegel
 #install.hegel
