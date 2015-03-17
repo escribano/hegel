@@ -1,5 +1,5 @@
 export PHILOSOPHIE_PATH="$HOME/philosophie"
-export PHILOSOPHIE_XPATH="$PHILOSOPHIE_PATH"
+export PHILOSOPHIE_XPATH="$PHILOSOPHIE_PATH/shell"
 
 # plato
 export ROOTSITE_PATH="/opt/hab/root"
