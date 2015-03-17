@@ -99,10 +99,20 @@ function hegel.info () {
   printf "Version: $version\n"
   printf "UNAME: $UNAME\n"
   printf "READLINK: $READLINK\n"
+  
   printf "PHILOSOPHIE_PATH: $PHILOSOPHIE_PATH\n"
   printf "PHILOSOPHIE_XPATH: $PHILOSOPHIE_XPATH\n"
   printf "HEGEL_PATH: $HEGEL_PATH\n"
   printf "HEGEL_LIB_PATH: $HEGEL_LIB_PATH\n"
+  
+  printf "PHILOSOPHIE_NGPATH: $PHILOSOPHIE_NGPATH\n"
+  printf "ROOTSITE_PATH: $ROOTSITE_PATH\n"
+  printf "DAEMON_PATH: $DAEMON_PATH\n"
+  printf "DAEMON_CONFIG_PATH: $DAEMON_CONFIG_PATH\n"
+  printf "MAPA_PATH: $MAPA_PATH\n"
+  printf "CITY_PATH: $CITY_PATH\n"
+  printf "DATA_PATH: $DATA_PATH\n"
+  
 }
 
 function mate.hegel () {
