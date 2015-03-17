@@ -16,6 +16,7 @@ function update.hegel () {
     pull.hegel
     source.hegel
     update.config
+    hegel.source.config
   else
     _fatal.error
   fi
